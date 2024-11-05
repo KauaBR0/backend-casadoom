@@ -5,7 +5,7 @@ FastAPI authentication server with multiple authentication methods like AWS, Goo
 
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 
 # Get general settings from config.py
 from config import settings
@@ -18,7 +18,7 @@ async def lifespan(app: FastAPI):
     # busca a conexão com o servidor de autenticação da MSAL (Microsoft Authentication Library)
     print("Starting up the server...")
     try :
-      app.auth_client = await get_msal_client()
+      app.auth_client = "biblioteca mSAL"  # await get_msal_client()
     except Exception as e:
       print(f"Error connecting to MSAL: {e}")
       raise e
@@ -42,10 +42,10 @@ async def root():
     return {"status": "ok"}
 
 @app.get("/login")
-asycn def root(req: Request):
+async def login(req: Request):
   """
   Login endpoint
   """
-  print(f"login requet received")
+  print(f"login requet received{ 4 }")
   [ print( (k, v) ) for k, v in req.headers.items() ]
   return {"status": "ok"}
