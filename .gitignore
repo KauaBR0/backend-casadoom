@@ -6,7 +6,6 @@ env
 .pytest_cache
 dist
 local
-poetry.lock
 *.egg-info
 .coverage
 scripts/load_env.sh
