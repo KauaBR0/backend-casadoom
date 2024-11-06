@@ -1,6 +1,3 @@
-# Sistema central de autenticação
+# Sistema central
 
-Microserviço de autenticação em FastAPI para autenticar usuários para outros backends.
-
-Para autenticar um usuário, envie user/password e o nome de um domínio.
-
+Aplicação em FASTAPI

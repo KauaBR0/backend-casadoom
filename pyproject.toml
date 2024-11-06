@@ -1,11 +1,13 @@
 [project]
 name = "backend-casadoom"
 version = "0.1.0"
-description = "Add your description here"
+description = "Sistema geral API"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "fastapi-cloudauth>=0.4.3",
     "fastapi>=0.115.4",
+    "motor>=3.6.0",
     "uvicorn>=0.32.0",
+    "virtualenv>=20.27.1",
 ]
