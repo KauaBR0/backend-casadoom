@@ -5,7 +5,7 @@ from schemas.user import serializeDict, serializeList
 from bson import ObjectId
 user = APIRouter() 
 
-@user.get('/')
+@user.get('/user')
 async def find_all_users():
     return serializeList(conn.local.user.find())
 
@@ -13,18 +13,18 @@ async def find_all_users():
 # async def find_one_user(id):
 #     return serializeDict(conn.local.user.find_one({"_id":ObjectId(id)}))
 
-@user.post('/')
+@user.post('/user')
 async def create_user(user: User):
     conn.local.user.insert_one(dict(user))
     return serializeList(conn.local.user.find())
 
-@user.put('/{id}')
+@user.put('/user/{id}')
 async def update_user(id,user: User):
     conn.local.user.find_one_and_update({"_id":ObjectId(id)},{
         "$set":dict(user)
     })
     return serializeDict(conn.local.user.find_one({"_id":ObjectId(id)}))
 
-@user.delete('/{id}')
+@user.delete('/user/{id}')
 async def delete_user(id,user: User):
     return serializeDict(conn.local.user.find_one_and_delete({"_id":ObjectId(id)}))
